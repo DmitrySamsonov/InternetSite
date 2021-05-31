@@ -7,5 +7,14 @@ public class Employee {
     private String firstName;
     private int age;
 
+    public Employee() {
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
