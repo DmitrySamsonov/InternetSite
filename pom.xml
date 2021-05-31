@@ -7,7 +7,10 @@
   <groupId>by.ferma</groupId>
   <artifactId>InternetSite</artifactId>
   <version>1.0</version>
-  <packaging>war</packaging>
+    <modules>
+        <module>EmployeeService</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>InternetSite Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
