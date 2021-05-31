@@ -1,5 +1,10 @@
 package entity;
 
 public class Employee {
-    private  String lastName;
+
+    private int id;
+    private String lastName;
+    private int age;
+
+
 }
