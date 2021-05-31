@@ -14,9 +14,14 @@ public class Employee {
         return firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public int getId() {
         return id;
     }
