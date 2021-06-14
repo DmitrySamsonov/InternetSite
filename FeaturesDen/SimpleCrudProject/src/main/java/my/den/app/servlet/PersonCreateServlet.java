@@ -1,7 +1,7 @@
-package my.app.servlet;
+package my.den.app.servlet;
 
 import com.google.gson.Gson;
-import my.app.entity.Person;
+import my.den.app.entity.Person;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,6 +44,8 @@ public class PersonCreateServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(personJsonString);
         out.flush();
+
+
     }
 
 

@@ -1,4 +1,4 @@
-package my.app.servlet;
+package my.den.app.servlet;
 
 import javax.servlet.http.HttpServlet;
 

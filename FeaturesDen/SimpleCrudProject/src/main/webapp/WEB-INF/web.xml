@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>personListServlet</servlet-name>
-        <servlet-class>my.app.servlet.PersonListServlet</servlet-class>
+        <servlet-class>my.serg.app.servlet.PersonListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

@@ -1,7 +1,7 @@
-package my.app.servlet;
+package my.den.app.servlet;
 
 import com.google.gson.Gson;
-import my.app.entity.Person;
+import my.den.app.entity.Person;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

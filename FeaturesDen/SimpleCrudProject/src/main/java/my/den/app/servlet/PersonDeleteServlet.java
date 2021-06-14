@@ -1,4 +1,6 @@
-package my.app.servlet;
+package my.den.app.servlet;
+
+import my.den.app.servlet.PersonListServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
