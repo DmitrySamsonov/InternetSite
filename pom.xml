@@ -11,6 +11,7 @@
         <module>EmployeeService</module>
         <module>FeaturesSerg</module>
         <module>FeaturesDen</module>
+        <module>FeaturesDimon</module>
     </modules>
     <packaging>pom</packaging>
 
