@@ -14,7 +14,7 @@
     <modules>
         <module>Lombok</module>
         <module>GoF</module>
-        <module>SimpleCrudProject</module>
+        <module>SimpleCrudProjectSerg</module>
     </modules>
 
     <properties>
@@ -39,9 +39,38 @@
         </dependency>
 
 
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
 
 
     </dependencies>
+
+
+    <build>
+
+    <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5.1</version>
+                    <configuration>
+                        <annotationProcessorPaths>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.20</version>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+
+
+            </plugins>
+
+    </build>
+
 
 </project>

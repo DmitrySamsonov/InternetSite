@@ -1,6 +1,5 @@
 package my.app.servlet;
 
-import com.google.gson.Gson;
 import my.app.entity.Person;
 
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ public class PersonListServlet extends HttpServlet {
 
 
     @Override
-    public void init() throws ServletException {
+  public void init() throws ServletException {
         personList = Stream.of(
                 new Person(1, "Karan", 1000),
                 new Person(1, "Karan", 2000),
@@ -32,7 +31,7 @@ public class PersonListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        Gson gson = new Gson();
+     /*   Gson gson = new Gson();
 
 
 
@@ -43,6 +42,6 @@ public class PersonListServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         out.print(personJsonString);
         out.flush();
-
+*/
     }
 }

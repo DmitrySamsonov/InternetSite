@@ -1,7 +1,8 @@
 package my.app.servlet;
 
-import com.google.gson.Gson;
+
 import my.app.entity.Person;
+import my.app.service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,7 @@ public class PersonCreateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Gson gson = new Gson();
+       // Gson gson = new Gson();
 
         List<Person> personList = Stream.of(
                 new Person(1, "Karan", 1000),
@@ -32,12 +33,12 @@ public class PersonCreateServlet extends HttpServlet {
         ).collect(Collectors.toList());
 
 
-        String personJsonString = gson.toJson(personList);
+       // String personJsonString = gson.toJson(personList);
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        out.print(personJsonString);
+      //  out.print(personJsonString);
         out.flush();
 
     }
@@ -45,11 +46,15 @@ public class PersonCreateServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String idString = req.getParameter("id");
         String name= req.getParameter("name");
         String ageString = req.getParameter("age");
 
-        Person person = new Person(Long.parseLong(idString), name, Integer.parseInt(ageString));
+        int age = Integer.parseInt(ageString);
+        Person person = new Person( name, age);
+
+
+        new PersonService().createNewPerson(person);
+
 
     }
 }
