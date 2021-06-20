@@ -18,7 +18,6 @@ public class Car {
     private double engineVolume;
 
     private Car() {
-
     }
 
     public static CarBuilder newCarBuilder() {

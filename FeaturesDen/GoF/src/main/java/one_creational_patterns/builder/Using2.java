@@ -5,7 +5,7 @@ import lombok.ToString;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-public class Using {
+public class Using2 {
     public static void main(String[] args) {
         Car car = getAudi();
         System.out.println(car);
