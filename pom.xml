@@ -9,7 +9,6 @@
   <version>1.0</version>
     <modules>
         <module>EmployeeService</module>
-        <module>FeaturesSerg</module>
         <module>FeaturesDen</module>
     </modules>
     <packaging>pom</packaging>
