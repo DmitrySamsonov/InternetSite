@@ -1,4 +1,4 @@
-package entity;
+package good.team.entity;
 
 public class Employee {
 
