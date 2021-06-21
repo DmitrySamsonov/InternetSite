@@ -10,7 +10,6 @@
     <modules>
         <module>EmployeeService</module>
         <module>FeaturesSerg</module>
-        <module>FeaturesDen</module>
     </modules>
     <packaging>pom</packaging>
 
