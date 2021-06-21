@@ -2,6 +2,7 @@ package my.den.app.servlet;
 
 import com.google.gson.Gson;
 import my.den.app.entity.Person;
+import my.den.app.service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,10 @@ public class PersonCreateServlet extends HttpServlet {
         String ageString = req.getParameter("age");
 
         Person person = new Person(Long.parseLong(idString),name,Integer.parseInt(ageString));
+//        Person person = new Person(name,Integer.parseInt(ageString));
         PersonListServlet.personList.add(person);
+
+        new PersonService().createNewPerson(person);
 
         Gson gson = new Gson();
         String personJsonString = gson.toJson(person);
@@ -50,3 +54,5 @@ public class PersonCreateServlet extends HttpServlet {
 
 
 }
+
+
