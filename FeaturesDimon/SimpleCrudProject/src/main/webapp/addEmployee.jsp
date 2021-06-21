@@ -7,14 +7,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add person page</title>
+    <title>Add employee page</title>
 </head>
 
 <body>
 
-<form action="addPerson" method="post">
-    <input type = "text" name="personName" placeholder="Enter person name.." value=""/>
-    <input type = "number" name="personAge" placeholder="Enter person age.." value=""/>
+<form action="addEmployee" method="post">
+    <input type = "text" name="employeeName" placeholder="Enter employee name.." value=""/>
+    <input type = "number" name="employeeAge" placeholder="Enter employee age.." value=""/>
     <button type = "submit"> Save </button>
 </form>
 

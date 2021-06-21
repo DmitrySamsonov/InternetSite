@@ -10,41 +10,41 @@ import java.util.List;
 
 public class EmployeeService {
 
-    EmployeeDao personDao;
+    EmployeeDao employeeDao;
     public static final String REG_EXP_LETTERS = "[A-Za-z]*";
 
     public EmployeeService() {
-        personDao = new EmployeeJdbcDao();
+        employeeDao = new EmployeeJdbcDao();
         //personDao = new personJdbcDao();
     }
 
-    public void createNewPerson(Employee person) {
-        new EmployeeJdbcDao().createPerson(person);
+    public void createNewEmployee(Employee employee) {
+        new EmployeeJdbcDao().createEmployee(employee);
     }
 
 
-    public List<Employee> readAllPersons() {
-        List<Employee> people = personDao.readAllPersons();
+    public List<Employee> readAllEmployees() {
+        List<Employee> people = employeeDao.readAllEmployees();
         return people;
     }
 
 
-    public void updatePersonById(String personIdString, String personName, String personAgeString) throws EmployeeWebException {
+    public void updateEmployeeById(String employeeIdString, String employeeName, String employeeAgeString) throws EmployeeWebException {
         ArrayList<String> errorList = new ArrayList<>();
 
-        if (personName != null && personAgeString != null) {
-            if (personName.length() < 3 || personName.length() > 15) {
-                String message = "personName not in range in 2-15";
+        if (employeeName != null && employeeAgeString != null) {
+            if (employeeName.length() < 3 || employeeName.length() > 15) {
+                String message = "employeeName not in range in 2-15";
                 errorList.add(message);
             }
-            if (!personName.matches(REG_EXP_LETTERS)) {
-                String message = "personName has no correct symbols";
+            if (!employeeName.matches(REG_EXP_LETTERS)) {
+                String message = "employeeName has no correct symbols";
                 errorList.add(message);
             }
 
-            int personAge = 0;
+            int employeeAge = 0;
             try {
-                personAge = Integer.parseInt(personAgeString);
+                employeeAge = Integer.parseInt(employeeAgeString);
 
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -52,14 +52,14 @@ public class EmployeeService {
                 errorList.add(message);
             }
 
-            if (personAge < 0) {
+            if (employeeAge < 0) {
                 String message = "age cannot be negative";
                 errorList.add(message);
             }
 
-            int personId = 0;
+            int employeeId = 0;
             try {
-                personId = Integer.parseInt(personIdString);
+                employeeId = Integer.parseInt(employeeIdString);
 
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -67,7 +67,7 @@ public class EmployeeService {
                 errorList.add(message);
             }
 
-            if (personId < 0) {
+            if (employeeId < 0) {
                 String message = "id cannot be negative";
                 errorList.add(message);
             }
@@ -77,43 +77,43 @@ public class EmployeeService {
                 throw new EmployeeWebException(errorList);
             }
 
-            Employee person = new Employee(personId, personName, personAge);
-            personDao.updatePerson(person);
+            Employee employee = new Employee(employeeId, employeeName, employeeAge);
+            employeeDao.updateEmployee(employee);
 
         }
     }
 
-    public void deletePersonById(int id) {
+    public void deleteEmployeeById(int id) {
         ArrayList<String> errorList = new ArrayList<>();
 
         if (id < 0) {
-            String message = "id deleted person cannot be negative";
+            String message = "id deleted employee cannot be negative";
             errorList.add(message);
         }
 
         if (errorList.size() > 0) {
             throw new EmployeeWebException(errorList);
         }
-        personDao.deletePersonById(id);
+        employeeDao.deleteEmployeeById(id);
 
     }
 
-    public void createPerson(String personName, String personAgeString) throws EmployeeWebException {
+    public void createEmployee(String employeeName, String employeeAgeString) throws EmployeeWebException {
         ArrayList<String> errorList = new ArrayList<>();
 
-        if (personName != null && personAgeString != null) {
-            if (personName.length() < 3 || personName.length() > 15) {
-                String message = "personName not in range in 2-15";
+        if (employeeName != null && employeeAgeString != null) {
+            if (employeeName.length() < 3 || employeeName.length() > 15) {
+                String message = "employeeName not in range in 2-15";
                 errorList.add(message);
             }
-            if (!personName.matches(REG_EXP_LETTERS)) {
-                String message = "personName has no correct symbols";
+            if (!employeeName.matches(REG_EXP_LETTERS)) {
+                String message = "employeeName has no correct symbols";
                 errorList.add(message);
             }
 
-            int personAge = 0;
+            int employeeAge = 0;
             try {
-                personAge = Integer.parseInt(personAgeString);
+                employeeAge = Integer.parseInt(employeeAgeString);
 
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -121,7 +121,7 @@ public class EmployeeService {
                 errorList.add(message);
             }
 
-            if (personAge < 0) {
+            if (employeeAge < 0) {
                 String message = "age cannot be negative";
                 errorList.add(message);
             }
@@ -130,13 +130,13 @@ public class EmployeeService {
                 throw new EmployeeWebException(errorList);
             }
 
-            Employee person = new Employee(personName, personAge);
-            createPerson(person);
+            Employee employee = new Employee(employeeName,employeeAge);
+            createEmployee(employee);
         }
     }
 
-    public void createPerson(Employee person) {
-        personDao.createPerson(person);
+    public void createEmployee(Employee employee) {
+        employeeDao.createEmployee(employee);
     }
 
 }

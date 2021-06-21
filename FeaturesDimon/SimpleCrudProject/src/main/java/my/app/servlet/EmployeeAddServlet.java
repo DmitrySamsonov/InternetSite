@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/addPerson")
+@WebServlet("/addEmployee")
 public class EmployeeAddServlet extends HttpServlet {
 
     @Override
@@ -21,12 +21,12 @@ public class EmployeeAddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String personName = req.getParameter("personName");
-        String personAgeString = req.getParameter("personAge");
+        String employeeName = req.getParameter("employeeName");
+        String employeeAgeString = req.getParameter("employeeAge");
 
         try {
-            new EmployeeService().createPerson(personName, personAgeString);
-            req.getRequestDispatcher("api/persons").forward(req, resp);
+            new EmployeeService().createEmployee(employeeName, employeeAgeString);
+            req.getRequestDispatcher("api/employees").forward(req, resp);
         } catch (EmployeeWebException e) {
             req.setAttribute("messageList", e.getMessageList());
             req.getRequestDispatcher("/addEmployee.jsp").forward(req, resp);

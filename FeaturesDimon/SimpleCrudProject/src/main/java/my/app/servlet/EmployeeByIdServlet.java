@@ -16,7 +16,7 @@ public class EmployeeByIdServlet extends HttpServlet {
         String[] pathParts = pathInfo.split("/");
         String stringId = pathParts[2];
         long id = Long.parseLong(stringId);
-        EmployeeListServlet.personList.stream().filter(person -> person.getId()==id)
+        EmployeeListServlet.employeeList.stream().filter(employee -> employee.getId()==id)
                 .findFirst()
                 .orElse(null);
 

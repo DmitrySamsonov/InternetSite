@@ -7,11 +7,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Person page</title>
+    <title>Employee page</title>
 </head>
 <body>
 
-<h1> Person page </h1>
+<h1> Employee page </h1>
 
 
 
@@ -24,22 +24,22 @@
         <th  width="50" height="40"> <h4> DELETE </h4> </th>
     </tr>
 
- <c:forEach items="${personList}" var="person">
+ <c:forEach items="${employeeList}" var="employee">
    <tr>
-     <td>${person.id}</td>
-     <td>${person.name}</td>
-     <td>${person.age}</td>
+     <td>${employee.id}</td>
+     <td>${employee.name}</td>
+     <td>${employee.age}</td>
      <td align="center">
-        <form action = "updatePerson" method="get">
-            <input type="hidden" name="updatePersonId" value="${person.id}">
-            <input type="hidden" name="updatePersonName" value="${person.name}">
-            <input type="hidden" name="updatePersonAge" value="${person.age}">
+        <form action = "updateEmployee" method="get">
+            <input type="hidden" name="updateEmployeeId" value="${employee.id}">
+            <input type="hidden" name="updateEmployeeName" value="${employee.name}">
+            <input type="hidden" name="updateEmployeeAge" value="${employee.age}">
             <button type="submit" style='width:100'> Edit </button>
         </form>
      </td>
      <td align="center">
-        <form action = "api/personDelete" method="post">
-            <input type="hidden" name="deletePersonId" value="${person.id}">
+        <form action = "api/employeeDelete" method="post">
+            <input type="hidden" name="deleteEmployeeId" value="${employee.id}">
             <button type="submit" style='width:100'> Delete </button>
         </form>
      </td>
@@ -48,8 +48,8 @@
   </c:forEach>
   </table>
 
-    <form action="addPerson" method="get">
-         <button type="submit"> Add new person </button>
+    <form action="addEmployee" method="get">
+         <button type="submit"> Add new employee </button>
     </form>
 
     </br>

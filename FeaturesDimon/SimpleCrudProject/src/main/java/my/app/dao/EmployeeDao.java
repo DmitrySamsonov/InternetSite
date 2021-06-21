@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface EmployeeDao {
 
-    void createPerson(Employee person);
+    void createEmployee(Employee employee);
 
-    void deletePersonById(int id);
+    void deleteEmployeeById(int id);
 
-    void updatePerson(Employee person);
+    void updateEmployee(Employee employee);
 
-    Employee readPersonById(int id);
+    Employee readEmployeeById(int id);
 
-    List<Employee> readAllPersons();
+    List<Employee> readAllEmployees();
 
 
 }

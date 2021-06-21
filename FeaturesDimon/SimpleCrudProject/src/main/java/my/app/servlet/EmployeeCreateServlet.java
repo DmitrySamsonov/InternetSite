@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@WebServlet("/api/person")
+@WebServlet("/api/employee")
 public class EmployeeCreateServlet extends HttpServlet {
 
 
@@ -24,7 +24,7 @@ public class EmployeeCreateServlet extends HttpServlet {
 
        // Gson gson = new Gson();
 
-        List<Employee> personList = Stream.of(
+        List<Employee> employeeList = Stream.of(
                 new Employee(1, "Karan", 1000),
                 new Employee(1, "Karan", 2000),
                 new Employee(1, "Karan", 3000),
@@ -50,10 +50,10 @@ public class EmployeeCreateServlet extends HttpServlet {
         String ageString = req.getParameter("age");
 
         int age = Integer.parseInt(ageString);
-        Employee person = new Employee( name, age);
+        Employee employee = new Employee( name, age);
 
 
-        new EmployeeService().createNewPerson(person);
+        new EmployeeService().createNewEmployee(employee);
 
 
     }

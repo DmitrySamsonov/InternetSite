@@ -15,13 +15,13 @@ public class EmployeeDeleteServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String deletePersonIdString = req.getParameter("deletePersonId");
-        int deletePersonId = Integer.parseInt(deletePersonIdString);
+        String deleteEmployeeIdString = req.getParameter("deleteEmployeeId");
+        int deleteEmployeeId = Integer.parseInt(deleteEmployeeIdString);
 
 
         try {
-            new EmployeeService().deletePersonById(deletePersonId);
-            req.getRequestDispatcher("persons").forward(req, resp);
+            new EmployeeService().deleteEmployeeById(deleteEmployeeId);
+            req.getRequestDispatcher("employees").forward(req, resp);
         } catch (EmployeeWebException e) {
             req.setAttribute("messageList", e.getMessageList());
             req.getRequestDispatcher("/Person.jsp").forward(req, resp);

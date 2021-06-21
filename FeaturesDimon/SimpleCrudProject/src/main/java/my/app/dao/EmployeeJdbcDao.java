@@ -12,12 +12,12 @@ import java.util.List;
 public class EmployeeJdbcDao implements EmployeeDao {
 
     @Override
-    public void createPerson(Employee person) {
+    public void createEmployee(Employee employee) {
         try (Connection connection = new JdbcMysqlUtil().getConnection();
              Statement statement = connection.createStatement();) {
-            String name = person.getName();
-            int age = person.getAge();
-            String sql = "INSERT INTO `ppVLywhE9a`.`person` (`name`, `age`) VALUES ('" + name + "', '" + age + "');";
+            String name = employee.getName();
+            int age = employee.getAge();
+            String sql = "INSERT INTO `ppVLywhE9a`.`employee` (`name`, `age`) VALUES ('" + name + "', '" + age + "');";
             statement.execute(sql);
 
         } catch (SQLException throwables) {
@@ -27,11 +27,11 @@ public class EmployeeJdbcDao implements EmployeeDao {
     }
 
     @Override
-    public void deletePersonById(int id) {
+    public void deleteEmployeeById(int id) {
         try (Connection connection = new JdbcMysqlUtil().getConnection();
              Statement statement = connection.createStatement()) {
 
-            String sql = "DELETE FROM `ppVLywhE9a`.`person` WHERE (`id` = '" + id + "');";
+            String sql = "DELETE FROM `ppVLywhE9a`.`employee` WHERE (`id` = '" + id + "');";
             statement.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,19 +40,19 @@ public class EmployeeJdbcDao implements EmployeeDao {
 
 
     @Override
-    public void updatePerson(Employee person) {
+    public void updateEmployee(Employee employee) {
             JdbcMysqlUtil jdbcMysqlUtil = new JdbcMysqlUtil();
             Connection connection = null;
-            String newName = person.getName();
-            String newAge = Integer.toString(person.getAge());
-            String id = Integer.toString((int) person.getId());
+            String newName = employee.getName();
+            String newAge = Integer.toString(employee.getAge());
+            String id = Integer.toString((int) employee.getId());
 
             try {
                 connection = jdbcMysqlUtil.getConnection();
                 connection.setAutoCommit(false);
                 Statement statement = connection.createStatement();
 
-                String sql =  "UPDATE `ppVLywhE9a`.`person` SET `name` = '" + newName + "', `age` = '" + newAge + "' WHERE (`id` = '" + id + "');";
+                String sql =  "UPDATE `ppVLywhE9a`.`employee` SET `name` = '" + newName + "', `age` = '" + newAge + "' WHERE (`id` = '" + id + "');";
                 statement.execute(sql);
                 connection.commit();
             } catch (SQLException e) {
@@ -68,25 +68,25 @@ public class EmployeeJdbcDao implements EmployeeDao {
         }
 
     @Override
-    public Employee readPersonById(int id) {
+    public Employee readEmployeeById(int id) {
         return null;
     }
 
     @Override
-    public List<Employee> readAllPersons() {
+    public List<Employee> readAllEmployees() {
         ArrayList<Employee> people = new ArrayList<>();
         try (Connection connection = new JdbcMysqlUtil().getConnection();
              Statement statement = connection.createStatement()) {
 
-            String sql = "SELECT * FROM ppVLywhE9a.person;";
+            String sql = "SELECT * FROM ppVLywhE9a.employee;";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                String personName = resultSet.getString("name");
-                int personAge = resultSet.getInt(3);
-                int personId = resultSet.getInt(1);
+                String employeeName = resultSet.getString("name");
+                int employeeAge = resultSet.getInt(3);
+                int employeeId = resultSet.getInt(1);
 
-                Employee person = new Employee(personId, personName, personAge);
-                people.add(person);
+                Employee employee = new Employee(employeeId, employeeName, employeeAge);
+                people.add(employee);
             }
         } catch (SQLException e) {
             e.printStackTrace();

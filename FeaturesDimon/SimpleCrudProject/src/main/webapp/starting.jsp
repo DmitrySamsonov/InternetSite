@@ -9,7 +9,7 @@
 <h2> SimpleCrudProjectSerg </h2>
 <h2> Starting.jsp </h2>
 
-<form action="api/persons" method="post">
+<form action="api/employees" method="post">
     <input id="log" name="login" placeholder="Enter login.." type="text"/>
     <input id="pas" name="password" placeholder="Enter password.." type="text"/>
     <input type="submit" value="Sign in">

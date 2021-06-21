@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EmployeeListServlet extends HttpServlet {
 
-    static List<Employee> personList;
+    static List<Employee> employeeList;
 
 
   /*  @Override
@@ -29,9 +29,9 @@ public class EmployeeListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        List<Employee> people = new EmployeeService().readAllPersons();
+        List<Employee> people = new EmployeeService().readAllEmployees();
         HttpSession session = req.getSession(false);
-        session.setAttribute("personList", people);
+        session.setAttribute("employeeList", people);
         String contextPath = req.getContextPath();
         resp.sendRedirect(contextPath + "/employee.jsp");
     }

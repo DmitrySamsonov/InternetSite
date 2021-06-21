@@ -7,14 +7,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update person page</title>
+    <title>Update employee page</title>
 </head>
 <body>
 
-<form action="updatePerson" method="post">
-    <input type="text" name="personId" value="${updatePersonId}"/>
-    <input type="text" name="personName" value="${updatePersonName}"/>
-    <input type="number" name="personAge" value="${updatePersonAge}"/>
+<form action="updateEmployee" method="post">
+    <input type="text" name="employeeId" value="${updateEmployeeId}"/>
+    <input type="text" name="employeeName" value="${updateEmployeeName}"/>
+    <input type="number" name="employeeAge" value="${updateEmployeeAge}"/>
     <button type="submit"> Save </button>
 </form>
 
