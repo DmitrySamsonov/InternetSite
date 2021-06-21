@@ -1,6 +1,7 @@
 package my.app.servlet;
 
 import my.app.entity.Person;
+import my.app.service.PersonService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +22,10 @@ public class PersonCreateSarvlet extends HttpServlet {
        String age=  req.getParameter("age");
 
        Person person = new Person(Long.parseLong(id),name, Integer.parseInt(age));
-       PersonListServlet.personList.add(person);
+       // PersonListServlet.personList.add(person);
+
+       new PersonService().createPerson(person);
+
+
     }
 }
