@@ -1,15 +1,36 @@
 package good.team.service;
 
 import good.team.dao.EmployeeJdbcDao;
+import good.team.entity.Employee;
 
 public class EmployeeService {
-    public void updatePersonById(int id, String lastName, String firstName, String ageString) {
+    public void updatePersonById(int id, String lastName, String firstName, int age) {
+        String lastNameSQL = "`lastName` = ' " + lastName + "'";
+        String firstNameSQL = "`firstName` = '" + firstName + "'";
+        String AgeSQL = "`age` = '" + age + "'";
+        char z = ',';
 
-        if (ageString == null) {
-            new EmployeeJdbcDao().updateEmployeeNameById(id, lastName, firstName);
-        } else {
-            int age = Integer.parseInt(ageString);
-            new EmployeeJdbcDao().updateEmployeeById(id, lastName, firstName, age);
+        if (lastName.length() < 1) {
+            lastNameSQL = " ";
         }
+        if (firstName.length() < 1) {
+            firstNameSQL = " ";
+        }
+        if (age == 0) {
+            AgeSQL = " ";
+        }
+        if (lastNameSQL.length() > 2 & (firstNameSQL.length() > 2 | AgeSQL.length() > 2)) {
+            lastNameSQL = lastNameSQL + z;
+        }if ( firstNameSQL.length() > 2 & AgeSQL.length() > 2) {
+            firstNameSQL = firstNameSQL + z;
+        }
+
+        new EmployeeJdbcDao().updateEmployeeSQLById(id, lastNameSQL, firstNameSQL, AgeSQL);
+    }
+
+    public void updatePersonById(Employee employee) {
+        new EmployeeService().updatePersonById(employee.getId(), employee.getLastName(), employee.getFirstName(), employee.getAge());
     }
 }
+
+
