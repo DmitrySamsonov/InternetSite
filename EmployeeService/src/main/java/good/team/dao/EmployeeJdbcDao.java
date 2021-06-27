@@ -10,9 +10,11 @@ import java.sql.Statement;
 
 public class EmployeeJdbcDao {
 
-    public static Employee getEmployeeByIdJdbc(int id) {
+
+    public Employee getEmployeeByIdJdbc(int id) {
 
 
+        Employee employee = new Employee();
         try (Connection connection = new JdbcMysqlUtil().getConnection();
              Statement statement = connection.createStatement()) {
             String sql = "SELECT * FROM new_ferma.employee where id=" + id;
@@ -22,14 +24,19 @@ public class EmployeeJdbcDao {
 
                 String lastName = resultSet.getString("lastName");
                 String firstName = resultSet.getString("firstName");
-                int age = resultSet.getInt(4);
-                Employee employee = new Employee(id, lastName, firstName, age);
-                return employee;
+                int age = resultSet.getInt("age");
+                employee.setAge(age);
+                employee.setId(id);
+                employee.setFirstName(firstName);
+                employee.setLastName(lastName);
+
             }
         } catch (SQLException throwables) {
+            System.out.println("Something goes wrong");
             throwables.printStackTrace();
         }
-        return null;
+
+        return employee;
 
 
     }
