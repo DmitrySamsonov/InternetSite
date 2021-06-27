@@ -1,10 +1,14 @@
 package good.team.dao;
 
+import good.team.entity.Employee;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class EmployeeJdbcDao implements EmployeeDao {
+
     @Override
     public void updateEmployeeById(int id, String lastName, String firstName, int age) {
         try (Connection connection = new MySqlJdbcUtil().getConnection();
@@ -32,6 +36,11 @@ public class EmployeeJdbcDao implements EmployeeDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return null;
     }
 }
 
