@@ -1,5 +1,6 @@
 package my.app.servlet;
 
+import com.google.gson.Gson;
 import my.app.entity.Person;
 import my.app.service.PersonService;
 
@@ -32,17 +33,13 @@ public class PersonListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        List<Person> people = new PersonService().readAllPersons();
-        HttpSession session = req.getSession(false);
-        session.setAttribute("personList", people);
-        String contextPath = req.getContextPath();
-        resp.sendRedirect(contextPath + "/person.jsp");
-    }
-}
+        Gson gson = new Gson();
 
-     /*   Gson gson = new Gson();
-
-
+        personList = Stream.of(
+                new Person(1, "Karan", 5000),
+                new Person(2, "Karan", 5000),
+                new Person(3, "Karan", 5000)
+        ).collect(Collectors.toList());
 
         String personJsonString = gson.toJson(personList);
 
@@ -51,5 +48,30 @@ public class PersonListServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         out.print(personJsonString);
         out.flush();
-*/
+    }
+}
+
+
+
+    /*    List<Person> people = new PersonService().readAllPersons();
+        HttpSession session = req.getSession(false);
+        session.setAttribute("personList", people);
+        String contextPath = req.getContextPath();
+        resp.sendRedirect(contextPath + "/person.jsp");
+    }
+}*/
+
+       /* Gson gson = new Gson();
+
+        Person employee = new Person(1, "Karan", 5000);
+
+        String personJsonString = gson.toJson(employee);
+
+        PrintWriter out = resp.getWriter();
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        out.print(personJsonString);
+        out.flush();
+    }*/
+
 

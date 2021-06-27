@@ -26,7 +26,14 @@ public class PersonDeleteServlet extends HttpServlet {
             req.setAttribute("messageList", e.getMessageList());
             req.getRequestDispatcher("/Person.jsp").forward(req, resp);
         }
-
-
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String stringId = req.getParameter("id");
+        int id = Integer.parseInt(stringId);
+        PersonListServlet.personList.removeIf(person -> person.getId() == id);
+    }
+
+
 }
