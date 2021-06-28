@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
+
 public class EmployeeJdbcDao {
 
 
@@ -15,9 +16,9 @@ public class EmployeeJdbcDao {
 
 
         Employee employee = new Employee();
-        try (Connection connection = new JdbcMysqlUtil().getConnection();
+        try (Connection connection = new MySqlJdbcUtil().getConnection();
              Statement statement = connection.createStatement()) {
-            String sql = "SELECT * FROM new_ferma.employee where id=" + id;
+            String sql = "SELECT * FROM `ppVLywhE9a`.`employee` where id=" + id;
 
             ResultSet resultSet = statement.executeQuery(sql);
             if (resultSet.next()) {
