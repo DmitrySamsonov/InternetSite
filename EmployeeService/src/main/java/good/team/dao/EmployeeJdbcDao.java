@@ -11,6 +11,7 @@ public class EmployeeJdbcDao implements EmployeeDao {
 
     @Override
     public void updateEmployeeById(int id, String lastName, String firstName, int age) {
+
         try (Connection connection = new MySqlJdbcUtil().getConnection();
              Statement statement = connection.createStatement()) {
             String sql = "UPDATE `ppVLywhE9a`.`employee` SET `" +
@@ -23,20 +24,19 @@ public class EmployeeJdbcDao implements EmployeeDao {
             e.printStackTrace();
         }
     }
-
-    public void updateEmployeeNameById(int id, String lastName, String firstName) {
+    public void updateEmployeeSQLById(int id, String lastNameSQL, String firstNameSQL, String AgeSQL) {
         try (Connection connection = new MySqlJdbcUtil().getConnection();
              Statement statement = connection.createStatement()) {
-            String sql = "UPDATE `ppVLywhE9a`.`employee` SET " +
-                    "`lastName` = '" + lastName + "', " +
-                    "`firstName` = '" + firstName + "', " +
-                    "`age` = NULL WHERE (`id` = '" + id + "');";
+
+            String sql = "UPDATE `ppVLywhE9a`.`employee` SET " + lastNameSQL + firstNameSQL +
+                    AgeSQL + " WHERE (`id` = '" + id + "');";
             statement.execute(sql);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public List<Employee> getAllEmployee() {
