@@ -17,6 +17,12 @@ public class Employee {
         this.firstName = firstName;
     }
 
+    public Employee(String lastName, String firstName, int age) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.age = age;
+    }
+
     public Employee(int id, String lastName, String firstName, int age) {
         this.id = id;
         this.lastName = lastName;

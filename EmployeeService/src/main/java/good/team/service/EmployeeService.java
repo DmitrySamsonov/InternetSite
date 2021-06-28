@@ -9,6 +9,24 @@ import java.util.List;
 public class EmployeeService {
 
     EmployeeDao employeeDao = new EmployeeJdbcDao();
+    EmployeeJdbcDao employeeJdbcDao = new EmployeeJdbcDao();
+
+
+    public Employee getEmployeeById(String id){
+
+
+        try {
+            int id1 = Integer.parseInt(id);
+            employeeJdbcDao.getEmployeeByIdJdbc(id1);
+        }
+        catch (Exception e) {
+            System.out.println("You enter wrong data");
+            e.printStackTrace();
+        }
+
+
+        return null;
+    }
 
 
     public void updatePersonById(int id, String lastName, String firstName, int age) {
@@ -43,4 +61,3 @@ public class EmployeeService {
         return employees;
     }
 }
-
