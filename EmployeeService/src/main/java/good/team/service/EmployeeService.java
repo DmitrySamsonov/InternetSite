@@ -3,6 +3,7 @@ package good.team.service;
 import good.team.dao.EmployeeDao;
 import good.team.dao.EmployeeJdbcDao;
 import good.team.entity.Employee;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -59,5 +60,8 @@ public class EmployeeService {
     public List<Employee> getAllEmployee() {
         List<Employee> employees = employeeDao.getAllEmployee();
         return employees;
+    }
+
+    public void createEmployee(String employeeLastName, String employeeFirstName, String employeeAge) {
     }
 }
