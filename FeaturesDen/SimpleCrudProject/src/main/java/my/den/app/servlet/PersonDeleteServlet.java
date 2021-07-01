@@ -1,6 +1,6 @@
 package my.den.app.servlet;
 
-import my.den.app.service.PersonService;
+import my.den.app.servlet.PersonListServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +17,6 @@ public class PersonDeleteServlet extends HttpServlet {
         String stringId = req.getParameter("id");
         long id = Long.parseLong(stringId);
         PersonListServlet.personList.removeIf(person -> person.getId() == id);
-//        PersonListServlet.personList.removeIf(person -> person.getId() == id);
-
-        new PersonService().deletePersonById(id);
-
 
     }
 }
-

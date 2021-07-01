@@ -39,4 +39,3 @@ public class PersonByIdServlet extends HttpServlet {
 
     }
 }
-

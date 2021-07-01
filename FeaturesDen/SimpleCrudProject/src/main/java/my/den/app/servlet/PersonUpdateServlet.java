@@ -20,10 +20,8 @@ import java.io.PrintWriter;
  * Employee employee  - чувак со старым id и обновленными (возможно не всеми) полями
  */
 
-
 @WebServlet("/api/updatepersonbyid/*")
 public class PersonUpdateServlet extends HttpServlet {
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,8 +43,6 @@ public class PersonUpdateServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(personJsonString);
         out.flush();
-
-
     }
 }
 
