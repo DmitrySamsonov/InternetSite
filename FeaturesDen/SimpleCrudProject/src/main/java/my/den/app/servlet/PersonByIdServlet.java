@@ -22,7 +22,7 @@ public class PersonByIdServlet extends HttpServlet {
         String stringId = pathParts[1];
 //        long id = 1;
         long id = Long.parseLong(stringId);
-        Person person1 = PersonListServlet.personList.stream().filter(person -> person.getId() == id)
+        Person person1 = PersonAllServlet.personList.stream().filter(person -> person.getId() == id)
                 .findFirst()
                 .orElse(null);
 //        Person person1 = PersonListServlet.personList.stream().filter(person -> person.getId() == id)
