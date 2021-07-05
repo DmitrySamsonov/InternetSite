@@ -18,11 +18,11 @@ public class EmployeeRestController {
 
     @PostMapping
     public String createEmployee(ModelMap model,
-                          @RequestParam(name = "employeeLastName") String employeeLastName,
-                          @RequestParam(name = "employeeFirstName") String employeeFirstName,
-                          @RequestParam(name = "employeeAge") String employeeAge) {
+                                 @RequestParam(name = "employeeLastName") String employeeLastName,
+                                 @RequestParam(name = "employeeFirstName") String employeeFirstName,
+                                 @RequestParam(name = "employeeAge") String employeeAge) {
         try {
-            employeeService.createEmployee(employeeLastName, employeeFirstName,employeeAge);
+            employeeService.createEmployee(employeeLastName, employeeFirstName, employeeAge);
             List<Employee> employees = employeeService.getAllEmployee();
             model.addAttribute("employeeList", employees);
             return "employees";
@@ -31,4 +31,20 @@ public class EmployeeRestController {
         }
     }
 
+    @PutMapping
+    public String updateEmployee(ModelMap model,
+                                 @RequestParam(name = "updateEmployeeId") String updateEmployeeId,
+                                 @RequestParam(name = "updateEmployeeLastName") String updateEmployeeLastName,
+                                 @RequestParam(name = "updateEmployeeFirstName") String updateEmployeeFirstName,
+                                 @RequestParam(name = "updateEmployeeAge") String updateEmployeeAge) {
+        try {
+            employeeService.updateEmployee(updateEmployeeId, updateEmployeeLastName, updateEmployeeFirstName, updateEmployeeAge);
+            List<Employee> employees = employeeService.getAllEmployee();
+            model.addAttribute("employeeList", employees);
+            return "employees";
+        } catch (RuntimeException e) {
+            return "createPerson";
+        }
+    }
 }
+

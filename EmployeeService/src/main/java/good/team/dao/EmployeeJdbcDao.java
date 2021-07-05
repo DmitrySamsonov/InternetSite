@@ -26,6 +26,7 @@ public class EmployeeJdbcDao implements EmployeeDao {
         }
     }
 
+
     public void updateEmployeeSQLById(int id, String lastNameSQL, String firstNameSQL, String AgeSQL) {
         try (Connection connection = new MySqlJdbcUtil().getConnection();
              Statement statement = connection.createStatement()) {
