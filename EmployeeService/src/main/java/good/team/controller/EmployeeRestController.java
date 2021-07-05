@@ -36,4 +36,19 @@ public class EmployeeRestController {
         return employeeList;
     }
 
+    @PutMapping
+    public String updateEmployee(ModelMap model,
+                                 @RequestParam(name = "updateEmployeeId") String updateEmployeeId,
+                                 @RequestParam(name = "updateEmployeeLastName") String updateEmployeeLastName,
+                                 @RequestParam(name = "updateEmployeeFirstName") String updateEmployeeFirstName,
+                                 @RequestParam(name = "updateEmployeeAge") String updateEmployeeAge) {
+        try {
+            employeeService.updateEmployee(updateEmployeeId, updateEmployeeLastName, updateEmployeeFirstName, updateEmployeeAge);
+            List<Employee> employees = employeeService.getAllEmployee();
+            model.addAttribute("employeeList", employees);
+            return "employees";
+        } catch (RuntimeException e) {
+            return "createPerson";
+        }
+    }
 }
