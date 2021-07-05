@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeJdbcDao implements EmployeeDao {
@@ -43,7 +44,12 @@ public class EmployeeJdbcDao implements EmployeeDao {
 
     @Override
     public List<Employee> getAllEmployee() {
-        return null;
+        ArrayList<Employee> employeeArrayList = new ArrayList<Employee>();
+        employeeArrayList.add(new Employee(1,"aa", "bb" ,30));
+        employeeArrayList.add(new Employee(2,"aa2", "bb2" ,30));
+        employeeArrayList.add(new Employee(3,"aa3", "bb3" ,30));
+
+        return employeeArrayList;
     }
 
 

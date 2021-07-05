@@ -12,23 +12,23 @@ import java.util.List;
 @RequestMapping("/employee")
 public class EmployeeRestController {
 
-    @Autowired
-    EmployeeService employeeService;
+//    @Autowired
+//    EmployeeService employeeService;
 
-    @PostMapping
-    public String createEmployee(ModelMap model,
-                                 @RequestParam(name = "employeeLastName") String employeeLastName,
-                                 @RequestParam(name = "employeeFirstName") String employeeFirstName,
-                                 @RequestParam(name = "employeeAge") String employeeAge) {
-        try {
-            employeeService.createEmployee(employeeLastName, employeeFirstName, employeeAge);
-            List<Employee> employees = employeeService.getAllEmployee();
-            model.addAttribute("employeeList", employees);
-            return "employees";
-        } catch (RuntimeException e) {
-            return "createPerson";
-        }
-    }
+//    @PostMapping
+//    public String createEmployee(ModelMap model,
+//                                 @RequestParam(name = "employeeLastName") String employeeLastName,
+//                                 @RequestParam(name = "employeeFirstName") String employeeFirstName,
+//                                 @RequestParam(name = "employeeAge") String employeeAge) {
+//        try {
+//            employeeService.createEmployee(employeeLastName, employeeFirstName, employeeAge);
+//            List<Employee> employees = employeeService.getAllEmployee();
+//            model.addAttribute("employeeList", employees);
+//            return "employees";
+//        } catch (RuntimeException e) {
+//            return "createPerson";
+//        }
+//    }
 
     @GetMapping
     public List<Employee> getEmployeeList() {
@@ -36,25 +36,25 @@ public class EmployeeRestController {
         return employeeList;
     }
 
-    @PutMapping
-    public String updateEmployee(ModelMap model,
-                                 @RequestParam(name = "updateEmployeeId") String updateEmployeeId,
-                                 @RequestParam(name = "updateEmployeeLastName") String updateEmployeeLastName,
-                                 @RequestParam(name = "updateEmployeeFirstName") String updateEmployeeFirstName,
-                                 @RequestParam(name = "updateEmployeeAge") String updateEmployeeAge) {
-        try {
-            employeeService.updateEmployee(updateEmployeeId, updateEmployeeLastName, updateEmployeeFirstName, updateEmployeeAge);
-            List<Employee> employees = employeeService.getAllEmployee();
-            model.addAttribute("employeeList", employees);
-            return "employees";
-        } catch (RuntimeException e) {
-            return "createPerson";
-        }
-    }
-
-    @GetMapping("/{id}")
-    public Employee employeeById(@PathVariable(name = "id") String id) {
-        Employee employeeById = new EmployeeService().getEmployeeById(id);
-        return employeeById;
-    }
+//    @PutMapping
+//    public String updateEmployee(ModelMap model,
+//                                 @RequestParam(name = "updateEmployeeId") String updateEmployeeId,
+//                                 @RequestParam(name = "updateEmployeeLastName") String updateEmployeeLastName,
+//                                 @RequestParam(name = "updateEmployeeFirstName") String updateEmployeeFirstName,
+//                                 @RequestParam(name = "updateEmployeeAge") String updateEmployeeAge) {
+//        try {
+//            employeeService.updateEmployee(updateEmployeeId, updateEmployeeLastName, updateEmployeeFirstName, updateEmployeeAge);
+//            List<Employee> employees = employeeService.getAllEmployee();
+//            model.addAttribute("employeeList", employees);
+//            return "employees";
+//        } catch (RuntimeException e) {
+//            return "createPerson";
+//        }
+//    }
+//
+//    @GetMapping("/{id}")
+//    public Employee employeeById(@PathVariable(name = "id") String id) {
+//        Employee employeeById = new EmployeeService().getEmployeeById(id);
+//        return employeeById;
+//    }
 }

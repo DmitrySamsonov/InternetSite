@@ -1,5 +1,4 @@
-package good.team.entity;
-
+package good.team.webUI.entity;
 
 public class Employee {
 
@@ -9,13 +8,6 @@ public class Employee {
     private int age;
 
     public Employee() {
-    }
-
-    public Employee(int id, String lastName, String firstName, int age) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.age = age;
     }
 
     public String getFirstName() {
