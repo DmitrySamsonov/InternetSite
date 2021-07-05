@@ -19,17 +19,17 @@ public class EmployeeService {
 
     public Employee getEmployeeById(String id) {
 
-
+        Employee employee = null;
         try {
             int id1 = Integer.parseInt(id);
-            employeeJdbcDao.getEmployeeByIdJdbc(id1);
+            employee = employeeJdbcDao.getEmployeeByIdJdbc(id1);
         } catch (Exception e) {
             System.out.println("You enter wrong data");
             e.printStackTrace();
         }
 
 
-        return null;
+        return employee;
     }
 
 

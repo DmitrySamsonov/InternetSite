@@ -51,4 +51,10 @@ public class EmployeeRestController {
             return "createPerson";
         }
     }
+
+    @GetMapping("/{id}")
+    public Employee employeeById(@PathVariable(name = "id") String id) {
+        Employee employeeById = new EmployeeService().getEmployeeById(id);
+        return employeeById;
+    }
 }
