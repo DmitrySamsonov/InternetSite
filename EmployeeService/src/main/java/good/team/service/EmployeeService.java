@@ -3,7 +3,6 @@ package good.team.service;
 import good.team.dao.EmployeeDao;
 import good.team.dao.EmployeeJdbcDao;
 import good.team.entity.Employee;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -25,10 +24,8 @@ public class EmployeeService {
             e.printStackTrace();
         }
 
-
         return null;
     }
-
 
     public void updatePersonById(int id, String lastName, String firstName, int age) {
         String lastNameSQL = "`lastName` = ' " + lastName + "'";
