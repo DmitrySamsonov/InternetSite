@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class EmployeeService {
 
     public static final String REG_EXP_LETTERS = "[A-Za-z]*";
