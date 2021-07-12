@@ -1,7 +1,6 @@
 package good.team.dao;
 
 import good.team.entity.Employee;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,6 +42,7 @@ public class EmployeeJdbcDao implements EmployeeDao {
 
 
     @Override
+
     public List<Employee> getAllEmployee() {
         ArrayList<Employee> employeeArrayList = new ArrayList<Employee>();
         employeeArrayList.add(new Employee(1,"aa", "bb" ,30));
