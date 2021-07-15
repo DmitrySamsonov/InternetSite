@@ -9,6 +9,7 @@
   <version>1.0</version>
     <modules>
         <module>EmployeeService</module>
+        <module>Java8_AL</module>
     </modules>
     <packaging>pom</packaging>
 
