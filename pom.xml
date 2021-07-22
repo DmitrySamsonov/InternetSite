@@ -10,6 +10,8 @@
     <modules>
         <module>EmployeeService</module>
         <module>FeaturesDen</module>
+        <module>Java8_DK</module>
+        <module>StreamAPI_KDI</module>
     </modules>
     <packaging>pom</packaging>
 
